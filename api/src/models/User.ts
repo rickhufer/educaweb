@@ -1,5 +1,5 @@
-import { Sequelize, DataTypes, Model } from 'sequelize';
 import bcrypt from 'bcrypt';
+import { DataTypes, Model, Sequelize } from 'sequelize';
 
 interface UserAttributes {
   id: number;

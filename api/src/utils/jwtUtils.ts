@@ -1,13 +1,13 @@
-import jwt from 'jsonwebtoken';
+import 'dotenv/config';
+
 import { Request, Response } from 'express';
-import dotenv from 'dotenv';
-dotenv.config();
+import jwt from 'jsonwebtoken';
 
 const SECRET_KEY: string = process.env.SECRET_KEY || '';
 
-export const generateToken = async (userId: number): Promise<string> => {
+export const generateToken = async (userId: number) => {
   try {
-    const token = await jwt.sign({ userId, used: false }, SECRET_KEY, {
+    const token = jwt.sign({ userId, used: false }, SECRET_KEY, {
       expiresIn: '365d',
     });
     return token;
