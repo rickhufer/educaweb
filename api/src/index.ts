@@ -4,7 +4,7 @@ import { app } from './app';
 import { sequelize } from './db';
 import { env } from './env';
 
-const PORT = env.PORT || 3001;
+const PORT = env.PORT;
 
 sequelize
   .sync(
