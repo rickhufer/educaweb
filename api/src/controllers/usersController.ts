@@ -1,13 +1,14 @@
-import { User } from '../db';
-import { UserModelInstance } from '../models/User';
 import bcrypt from 'bcrypt';
-import { generateToken } from '../utils/jwtUtils';
+
 import {
   DUPLICATE_USER_ERROR,
+  INCORRECT_PASSWORD_ERROR,
   USER_NOT_EXISTS_ERROR,
   USER_NOT_FOUND_ERROR,
-  INCORRECT_PASSWORD_ERROR,
 } from '../constants/messages.es';
+import { User } from '../db';
+import { UserModelInstance } from '../models/User';
+import { generateToken } from '../utils/jwtUtils';
 
 export const registerUser = async (email: string, password: string) => {
   const [newUser, created] = await User.findOrCreate({

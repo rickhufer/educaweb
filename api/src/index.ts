@@ -1,7 +1,10 @@
-import app from './app';
-import { sequelize } from './db';
+import 'dotenv/config';
 
-const PORT = process.env.PORT || 3001;
+import { app } from './app';
+import { sequelize } from './db';
+import { env } from './env';
+
+const PORT = env.PORT;
 
 sequelize
   .sync(
