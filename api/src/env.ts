@@ -17,11 +17,6 @@ export const env = createEnv({
     SECRET_KEY: z.string(),
   },
 
-  clientPrefix: 'PUBLIC_',
-  client: {
-    // PUBLIC_CLERK_SIGN_IN_URL: z.string().optional(),
-  },
-
   runtimeEnv: process.env,
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

@@ -1,22 +1,14 @@
+import 'dotenv/config';
+
 import { Sequelize } from 'sequelize-typescript';
-import dotenv from 'dotenv';
-dotenv.config();
 
-import { UserModel } from './models/User';
+import { env } from './env';
 import PostModel from './models/Post';
+import { UserModel } from './models/User';
 
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT, DB_SSL } = process.env;
+const { DATABASE_URL } = env;
 
-const sequelize = new Sequelize({
-  database: DB_NAME || '',
-  username: DB_USER || '',
-  password: DB_PASSWORD || '',
-  host: DB_HOST || 'localhost',
-  port: DB_PORT ? +DB_PORT : 5432,
-  dialect: 'postgres',
-  dialectOptions: {
-    ssl: DB_SSL === 'true',
-  },
+const sequelize = new Sequelize(DATABASE_URL, {
   logging: false,
   // native: true,
 });
