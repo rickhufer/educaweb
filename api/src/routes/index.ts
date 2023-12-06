@@ -1,6 +1,6 @@
 import { Router, type Request, type Response } from 'express';
 
-import userRoutes from './userRoutes';
+import { userRoutes } from './userRoutes';
 
 export const mainRouter = Router();
 

@@ -1,13 +1,13 @@
-import { Router } from 'express';
-import { Request, Response } from 'express';
-import { authenticateToken } from '../utils/jwtUtils';
+import { Router, type Request, type Response } from 'express';
+
 import {
-  registerUserHandler,
   loginUserHandler,
   profileUserHandler,
+  registerUserHandler,
 } from '../handlers/usersHandler';
+import { authenticateToken } from '../utils/jwtUtils';
 
-const userRoutes = Router();
+export const userRoutes = Router();
 
 userRoutes.get('/', authenticateToken, profileUserHandler);
 userRoutes.post('/register', registerUserHandler);
@@ -17,5 +17,3 @@ userRoutes.post('/logout', registerUserHandler);
 userRoutes.get('/all', authenticateToken, (req: Request, res: Response) => {
   res.status(200).send('GET /users');
 });
-
-export default userRoutes;
